@@ -1,0 +1,102 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"i0m7JCC-EL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\"><b>Trip Application</b></span>\",\"col\":12}},{\"id\":\"DaPBi4-AX1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"w4LQq1dHWe\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\" style=\\\"\\\"><b>Master</b></span>\",\"col\":12}},{\"id\":\"dfEJSZ84sp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Make\",\"col\":3}},{\"id\":\"RYQ4QvGKXt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Model\",\"col\":3}},{\"id\":\"FkbGaQzucl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Type\",\"col\":3}},{\"id\":\"E-sxG61T23\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Document Type\",\"col\":3}},{\"id\":\"EgdddqEwXY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Document Issued\",\"col\":3}},{\"id\":\"YgYIcllfYb\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"fBy1sj8R6b\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Master\",\"col\":3}},{\"id\":\"lHKoUiZyOx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Driver Master\",\"col\":3}},{\"id\":\"EYOkJHx42r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Type Master\",\"col\":3}},{\"id\":\"7N3Lt9059Q\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"lQ1x3Ye9uV\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\" style=\\\"\\\">Transaction</span><br>\",\"col\":12}},{\"id\":\"weMz6i7w9G\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trip\",\"col\":3}}]",
+ "creation": "2023-11-01 15:21:32.315176",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "text",
+ "idx": 1,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Trip Application",
+ "links": [],
+ "modified": "2023-11-04 12:29:50.352090",
+ "modified_by": "sasi@gmail.com",
+ "module": "NTC-Trip Application",
+ "name": "Trip Application",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Vehicle Master",
+   "link_to": "Vehicle Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Expense Type Master",
+   "link_to": "Expense Type Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Driver Master",
+   "link_to": "Driver Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Make",
+   "link_to": "Vehicle Make Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Trip",
+   "link_to": "Trip",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Model",
+   "link_to": "Vehicle Model Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Type",
+   "link_to": "Vehicle Type Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Document Type",
+   "link_to": "Vehicle Document Type Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Document Issued",
+   "link_to": "Vehicle Document Issued Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Trip Application"
+}

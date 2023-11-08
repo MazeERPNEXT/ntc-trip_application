@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{#####}-{document_issued_by}",
+ "creation": "2023-11-04 12:23:46.759508",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_issued_by",
+  "column_break_breq",
+  "document_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_issued_by",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document Issued By",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_breq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Document Type",
+   "options": "Vehicle Document Type Master",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-07 12:18:43.182392",
+ "modified_by": "Administrator",
+ "module": "NTC-Trip Application",
+ "name": "Vehicle Document Issued Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

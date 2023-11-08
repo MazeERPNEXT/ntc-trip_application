@@ -1,0 +1,57 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-03 12:10:40.004058",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "expense_type",
+  "column_break_pfsd",
+  "expense_amount",
+  "column_break_ahvz",
+  "expense_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "expense_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Expense Type",
+   "options": "Expense Type Master"
+  },
+  {
+   "fieldname": "column_break_pfsd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": ".expense_type",
+   "fieldname": "expense_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Expense Amount"
+  },
+  {
+   "fieldname": "column_break_ahvz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expense_remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Expense Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-03 16:28:34.438453",
+ "modified_by": "Administrator",
+ "module": "NTC-Trip Application",
+ "name": "Trip Expense Type Child Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

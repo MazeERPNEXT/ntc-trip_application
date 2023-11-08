@@ -1,0 +1,151 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{#####}-{full_name}",
+ "creation": "2023-11-02 16:19:57.345417",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "driver_code",
+  "full_name",
+  "salary_type",
+  "salary_amount",
+  "column_break_isod",
+  "mobile_number",
+  "address",
+  "status",
+  "license_details_section",
+  "license_number",
+  "license_copy",
+  "column_break_tyak",
+  "issuing_date",
+  "address_proof",
+  "column_break_dhog",
+  "expiry_date",
+  "driver_photo"
+ ],
+ "fields": [
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nSuspended\nLeft",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_isod",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Long Text",
+   "label": "Address",
+   "max_height": "103px"
+  },
+  {
+   "fieldname": "license_details_section",
+   "fieldtype": "Section Break",
+   "label": "License Details"
+  },
+  {
+   "fieldname": "license_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "License Number"
+  },
+  {
+   "fieldname": "column_break_tyak",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issuing_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Issuing Date"
+  },
+  {
+   "fieldname": "column_break_dhog",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "driver_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Driver Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "salary_type",
+   "fieldtype": "Select",
+   "label": "Salary Type",
+   "options": "Per Day\nMonthly"
+  },
+  {
+   "fieldname": "salary_amount",
+   "fieldtype": "Currency",
+   "label": "Salary Amount"
+  },
+  {
+   "fieldname": "license_copy",
+   "fieldtype": "Attach",
+   "label": "License Copy"
+  },
+  {
+   "fieldname": "address_proof",
+   "fieldtype": "Attach",
+   "label": "Address Proof"
+  },
+  {
+   "fieldname": "driver_photo",
+   "fieldtype": "Attach",
+   "label": "Driver Photo"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-04 15:50:42.250559",
+ "modified_by": "Administrator",
+ "module": "NTC-Trip Application",
+ "name": "Driver Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

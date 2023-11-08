@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-11-02 19:12:43.075621",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_npmc",
+  "naming_series",
+  "trip_date",
+  "from",
+  "to",
+  "material_name",
+  "purpose",
+  "trip_amount",
+  "column_break_kaoe",
+  "vehicle_number",
+  "no_of_kms",
+  "trip_remarks",
+  "trip_end_date",
+  "status",
+  "section_break_wbhb",
+  "driver_details_column",
+  "driver_details",
+  "section_break_whvj",
+  "expense_type_child"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Trip No",
+   "options": "TRIP-.YYYY.-"
+  },
+  {
+   "fieldname": "trip_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Trip Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "From Location"
+  },
+  {
+   "fieldname": "to",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "To Location"
+  },
+  {
+   "fieldname": "material_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Material Name"
+  },
+  {
+   "fieldname": "column_break_kaoe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_of_kms",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "No of KMS",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "trip_remarks",
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Trip Remarks",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Purpose",
+   "options": "FOC\nCommercial"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Started\nShort Closed\nCancelled\nCompleted"
+  },
+  {
+   "fieldname": "section_break_whvj",
+   "fieldtype": "Section Break",
+   "label": "Expense Type"
+  },
+  {
+   "fieldname": "expense_type_child",
+   "fieldtype": "Table",
+   "options": "Trip Expense Type Child Table"
+  },
+  {
+   "fieldname": "vehicle_number",
+   "fieldtype": "Link",
+   "label": "Vehicle Number",
+   "options": "Vehicle Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trip_end_date",
+   "fieldtype": "Datetime",
+   "label": "Trip End Date"
+  },
+  {
+   "fieldname": "section_break_npmc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "trip_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Trip Amount"
+  },
+  {
+   "fieldname": "section_break_wbhb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "driver_details",
+   "fieldtype": "Table",
+   "options": "Driver Child Table"
+  },
+  {
+   "fieldname": "driver_details_column",
+   "fieldtype": "Column Break",
+   "label": "Driver Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-08 12:10:43.627146",
+ "modified_by": "Administrator",
+ "module": "NTC-Trip Application",
+ "name": "Trip",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

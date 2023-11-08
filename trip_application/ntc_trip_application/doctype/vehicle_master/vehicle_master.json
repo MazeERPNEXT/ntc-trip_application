@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:license_plate",
+ "creation": "2023-11-01 15:36:03.382111",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "license_plate",
+  "make",
+  "column_break_bqkl",
+  "model",
+  "section_break_ngkc",
+  "vehicle_type",
+  "chassis_no",
+  "column_break_pfbo",
+  "vehicle_value",
+  "location",
+  "document_details",
+  "vehicle_doc_child_table",
+  "additional_details",
+  "fuel_type",
+  "uom",
+  "carbon_check_date",
+  "column_break_tqez",
+  "color",
+  "wheels",
+  "doors"
+ ],
+ "fields": [
+  {
+   "fieldname": "make",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Make",
+   "options": "Vehicle Make Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bqkl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Model",
+   "options": "Vehicle Model Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ngkc",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "column_break_pfbo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chassis_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Chassis No"
+  },
+  {
+   "fieldname": "vehicle_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Vehicle Value"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location"
+  },
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "License Plate",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "additional_details",
+   "fieldtype": "Tab Break",
+   "label": "Additional Details"
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Fuel Type",
+   "options": "\nPetrol\nDiesel\nNatural Gas\nElectric"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fuel UOM"
+  },
+  {
+   "fieldname": "carbon_check_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Last Carbon Check"
+  },
+  {
+   "fieldname": "column_break_tqez",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Color"
+  },
+  {
+   "fieldname": "wheels",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Wheels"
+  },
+  {
+   "fieldname": "doors",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Doors"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "label": "Vehicle Type",
+   "options": "Vehicle Type Master"
+  },
+  {
+   "fieldname": "document_details",
+   "fieldtype": "Section Break",
+   "label": "Document Details"
+  },
+  {
+   "fieldname": "vehicle_doc_child_table",
+   "fieldtype": "Table",
+   "options": "Document Details Child Table"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-07 16:07:27.343965",
+ "modified_by": "Administrator",
+ "module": "NTC-Trip Application",
+ "name": "Vehicle Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

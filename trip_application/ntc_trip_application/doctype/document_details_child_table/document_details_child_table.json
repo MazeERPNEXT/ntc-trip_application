@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-03 18:12:02.642285",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_type",
+  "column_break_vpcu",
+  "issued_by",
+  "column_break_jtnn",
+  "policy_number",
+  "column_break_xqti",
+  "issued_date",
+  "column_break_fqsl",
+  "expiry_date",
+  "column_break_ootd",
+  "amount",
+  "column_break_qyaj",
+  "document_attach"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Document Type",
+   "options": "Vehicle Document Type Master"
+  },
+  {
+   "fieldname": "column_break_vpcu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issued_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Issued By",
+   "options": "Vehicle Document Issued Master"
+  },
+  {
+   "fieldname": "column_break_jtnn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "policy_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Policy Number"
+  },
+  {
+   "fieldname": "column_break_xqti",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issued_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Issued Date"
+  },
+  {
+   "fieldname": "column_break_fqsl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "column_break_ootd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount"
+  },
+  {
+   "fieldname": "column_break_qyaj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_attach",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Document Attach"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-07 12:18:31.966523",
+ "modified_by": "Administrator",
+ "module": "NTC-Trip Application",
+ "name": "Document Details Child Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
