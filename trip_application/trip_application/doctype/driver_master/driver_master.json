@@ -104,7 +104,7 @@
   },
   {
    "fieldname": "salary_amount",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "Salary Amount"
   },
   {
@@ -125,9 +125,9 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-04 15:50:42.250559",
+ "modified": "2023-11-09 17:26:22.764442",
  "modified_by": "Administrator",
- "module": "NTC-Trip Application",
+ "module": "Trip Application",
  "name": "Driver Master",
  "naming_rule": "Expression",
  "owner": "Administrator",

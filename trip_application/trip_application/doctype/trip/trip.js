@@ -6,7 +6,7 @@ frappe.ui.form.on('Trip', {
 
 		frm.set_query("vehicle_number", () => {
 			return {
-				query: "trip_application.ntc_trip_application.doctype.vehicle_master.vehicle_master.get_available_vehicles",
+				query: "trip_application.trip_application.doctype.vehicle_master.vehicle_master.get_available_vehicles",
                 
 			};
 		});

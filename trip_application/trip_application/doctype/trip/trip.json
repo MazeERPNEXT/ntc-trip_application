@@ -122,7 +122,7 @@
   },
   {
    "fieldname": "trip_amount",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Trip Amount"
   },
@@ -143,9 +143,9 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-08 12:10:43.627146",
+ "modified": "2023-11-09 17:21:33.165051",
  "modified_by": "Administrator",
- "module": "NTC-Trip Application",
+ "module": "Trip Application",
  "name": "Trip",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",

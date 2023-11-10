@@ -1,5 +1,5 @@
 app_name = "trip_application"
-app_title = "NTC-Trip Application"
+app_title = "Trip Application"
 app_publisher = "MazeWorks"
 app_description = "Trip Application"
 app_email = "jeyanthkumar@mazeworkssolutions.com"
