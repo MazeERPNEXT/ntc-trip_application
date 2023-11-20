@@ -32,7 +32,7 @@
  "make_attachments_public": 1,
  "modified": "2023-11-07 12:20:10.768503",
  "modified_by": "Administrator",
- "module": "NTC-Trip Application",
+ "module": "Trip Application",
  "name": "Vehicle Make Master",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
