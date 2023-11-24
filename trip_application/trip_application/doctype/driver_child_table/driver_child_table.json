@@ -20,7 +20,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Driver Name",
-   "options": "Driver Master"
+   "options": "Driver Master",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_royu",
@@ -30,7 +31,8 @@
    "fieldname": "start_date",
    "fieldtype": "Datetime",
    "in_list_view": 1,
-   "label": "Start Date"
+   "label": "Start Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_dmfv",
@@ -49,6 +51,7 @@
   {
    "fieldname": "amount",
    "fieldtype": "Float",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Amount"
   }
@@ -56,7 +59,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-09 17:23:42.617545",
+ "modified": "2023-11-24 17:58:31.935770",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Driver Child Table",

@@ -15,9 +15,10 @@
   "section_break_ngkc",
   "vehicle_type",
   "chassis_no",
-  "column_break_pfbo",
   "vehicle_value",
+  "column_break_pfbo",
   "location",
+  "status",
   "document_details",
   "vehicle_doc_child_table",
   "additional_details",
@@ -67,7 +68,7 @@
   },
   {
    "fieldname": "vehicle_value",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Vehicle Value"
   },
@@ -146,11 +147,19 @@
    "fieldname": "vehicle_doc_child_table",
    "fieldtype": "Table",
    "options": "Document Details Child Table"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nIn Active",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-07 16:07:27.343965",
+ "modified": "2023-11-22 15:29:26.930248",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Vehicle Master",

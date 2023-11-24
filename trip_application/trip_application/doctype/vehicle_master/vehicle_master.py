@@ -13,6 +13,7 @@ class VehicleMaster(Document):
 def get_available_vehicles(doctype, txt, searchfield, start, page_len, filters):
     res = frappe.get_all("Vehicle Master",filters={
 			"name": ("like", f"%{txt}%"),
+            "status": ("Active"),
 		})
     
     docs = []

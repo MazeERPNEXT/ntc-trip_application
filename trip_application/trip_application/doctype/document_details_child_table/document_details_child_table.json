@@ -87,13 +87,14 @@
    "fieldname": "document_attach",
    "fieldtype": "Attach",
    "in_list_view": 1,
+   "in_preview": 1,
    "label": "Document Attach"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-09 17:24:18.864675",
+ "modified": "2023-11-22 16:20:42.486144",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Document Details Child Table",

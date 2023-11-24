@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{#####}-{full_name}",
+ "autoname": "format:DRI{#####}-{full_name}",
  "creation": "2023-11-02 16:19:57.345417",
  "default_view": "List",
  "doctype": "DocType",
@@ -18,13 +18,18 @@
   "status",
   "license_details_section",
   "license_number",
-  "license_copy",
   "column_break_tyak",
   "issuing_date",
-  "address_proof",
   "column_break_dhog",
   "expiry_date",
-  "driver_photo"
+  "section_break_qwol",
+  "license_copy",
+  "column_break_bifz",
+  "address_proof",
+  "column_break_hybh",
+  "driver_photo",
+  "column_break_uhij",
+  "address_proof_1"
  ],
  "fields": [
   {
@@ -39,7 +44,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Active\nSuspended\nLeft",
+   "options": "Active\nIn Active",
    "reqd": 1
   },
   {
@@ -115,17 +120,40 @@
   {
    "fieldname": "address_proof",
    "fieldtype": "Attach",
-   "label": "Address Proof"
+   "label": "Address Proof 1"
   },
   {
    "fieldname": "driver_photo",
-   "fieldtype": "Attach",
+   "fieldtype": "Attach Image",
    "label": "Driver Photo"
+  },
+  {
+   "fieldname": "section_break_qwol",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_bifz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hybh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_uhij",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_proof_1",
+   "fieldtype": "Attach",
+   "label": "Address Proof 2"
   }
  ],
+ "image_field": "driver_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-09 17:26:22.764442",
+ "make_attachments_public": 1,
+ "modified": "2023-11-22 18:10:45.885440",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Driver Master",

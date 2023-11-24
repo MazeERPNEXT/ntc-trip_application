@@ -7,10 +7,16 @@
  "engine": "InnoDB",
  "field_order": [
   "expense_type",
+  "column_break_sgag",
+  "driver_name",
+  "column_break_oftq",
+  "expense_date",
   "column_break_pfsd",
   "expense_amount",
   "column_break_ahvz",
-  "expense_remarks"
+  "expense_remarks",
+  "column_break_hbsp",
+  "doc_attach"
  ],
  "fields": [
   {
@@ -40,12 +46,44 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Expense Remarks"
+  },
+  {
+   "fieldname": "column_break_sgag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Driver Name",
+   "options": "Driver Master"
+  },
+  {
+   "fieldname": "column_break_oftq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expense_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expense Date"
+  },
+  {
+   "fieldname": "column_break_hbsp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "doc_attach",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Doc Attach"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-09 17:25:43.724582",
+ "modified": "2023-11-23 15:20:14.089483",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip Expense Type Child Table",
