@@ -12,6 +12,7 @@ frappe.ui.form.on('Trip', {
 			};
 		});
         
+        
         // frm.set_query("driver_name",'expense_type_child', () => {
 		// 	return {
 		// 		query: "trip_application.trip_application.doctype.driver_master.driver_master.get_available_driver",//get_available_exp_driver",
@@ -58,10 +59,19 @@ frappe.ui.form.on('Trip', {
     onload: function(frm) {
         frm.toggle_reqd('trip_end_date', !frm.doc.__islocal);
         frm.toggle_reqd('no_of_kms', !frm.doc.__islocal);
+        // frm.toggle_reqd('end_date', !frm.doc.driver_details.__islocal);
 
-
-
+        // frm.fields_dict['driver_details'].grid.set_read_only();
         
+        // frm.fields_dict['driver_details'].grid.on_grid_rendered = function(grid) {
+        //     alert('Hi')
+        //     if (frm.doc.status === 'Completed') {
+        //         grid.set_column_disp('fieldname', true); // Replace 'fieldname' with the actual fieldname in driver_details
+        //         grid.set_column_disp('another_field', true); // Replace 'another_field' with another fieldname
+        //         // Repeat for other fieldyour_child_table_fieldnames in driver_details that you want to make read-only
+        //         grid.make_read_only();
+        //     }
+        // };
         
         
         // console.log('Trip form loaded'); // Check if onload event is triggered
@@ -104,10 +114,17 @@ frappe.ui.form.on('Trip', {
         
         frm.fields_dict['driver_details'].grid.get_field('driver_name').get_query = function(doc, cdt, cdn) {
             var child = locals[cdt][cdn];
+            // console.log(doc.status)
+            // if (doc.status === 'Completed') {
+            //     frm.fields_dict['driver_details'].grid.set_read_only();
+            // }
             return {
                 filters:[['status','=', "Active"],['name','not in',doc.driver_details.map(d => d.driver_name)]]
             };
         };
+
+        
+
 
         frm.fields_dict['expense_type_child'].grid.get_field('driver_name').get_query = function(doc, cdt, cdn) {
             var child = locals[cdt][cdn];
@@ -116,15 +133,40 @@ frappe.ui.form.on('Trip', {
             };
         };
 
-    
+        
+        
+        
+        
+        
+        // frappe.ui.form.on('YourDoctype', 'refresh', frm => frm.fields_dict['driver_details'].grid.grid_rows.forEach(row => Object.values(row.fields_dict).forEach(field => field.df.read_only = 1)));
+
 
         
-    }
+    },
+
+
+    // before_validate: function(frm) {
+    //     alert(frm)
+    //     if (frm.doc.status === 'Completed') {
+    //         alert(frm.doc.status)
+
+    //         frm.set_df_property('driver_details', 'read_only', 1); 
+            
+    //         frm.fields_dict['driver_details'].grid.set_read_only(); 
+    //     }
+    // }
        
     
     
     
 });
+
+// frappe.ui.form.on('Driver Child Table', {
+// 	onload: function(frm) {
+//         frm.toggle_reqd('end_date', !frm.doc.__islocal);
+//     }    
+// });
+
 
 
 
