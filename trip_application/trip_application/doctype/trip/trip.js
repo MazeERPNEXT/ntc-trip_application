@@ -37,10 +37,12 @@ frappe.ui.form.on('Trip', {
 
         }
 
+        
 
-        if (frm.doc.no_of_kms === 0) {
+        if (frm.doc.no_of_kms === 0 && frm.doc.status != 'Started') {
             frappe.msgprint(__('Zero value is not allowed for "No of KMS"'));
             frappe.validated = false;
+            
         }
 
         
@@ -53,8 +55,21 @@ frappe.ui.form.on('Trip', {
     },
 
     onload: function(frm) {
-        frm.toggle_reqd('trip_end_date', !frm.doc.__islocal);
-        frm.toggle_reqd('no_of_kms', !frm.doc.__islocal);
+        
+        if (frm.doc.status != "Started") {
+        
+            frm.toggle_reqd('trip_end_date', !frm.doc.__islocal);
+            frm.toggle_reqd('no_of_kms', !frm.doc.__islocal);
+
+        }    
+
+        if (frm.doc.status === "Started") {
+            frm.set_df_property('no_of_kms', 'read_only', 1);
+            frm.set_df_property('trip_end_date', 'read_only', 1);
+            frm.set_df_property('trip_remarks', 'read_only', 1);
+
+        }
+
 
         if (frm.doc.__islocal) {
             frm.set_df_property('no_of_kms', 'read_only', 1);
@@ -84,21 +99,30 @@ frappe.ui.form.on('Trip', {
 
     },
     status: function(frm) {
+        
         if (frm.doc.status === "Started") {
             frm.set_df_property('no_of_kms', 'read_only', 1);
             frm.set_df_property('trip_end_date', 'read_only', 1);
             frm.set_df_property('trip_remarks', 'read_only', 1);
+
+            frm.toggle_reqd('trip_end_date', frm.doc.status != "Started");
+            frm.toggle_reqd('no_of_kms', frm.doc.status != "Started");
+        
         }
         if (frm.doc.status != "Started") {
             frm.set_df_property('no_of_kms', 'read_only', 0);
             frm.set_df_property('trip_end_date', 'read_only', 0);
             frm.set_df_property('trip_remarks', 'read_only', 0);
+
+            frm.toggle_reqd('trip_end_date', !frm.doc.__islocal);
+            frm.toggle_reqd('no_of_kms', !frm.doc.__islocal);
         }
         
-
+        
         
 
     },
+
     
     refresh: function(frm) {
         
@@ -111,7 +135,18 @@ frappe.ui.form.on('Trip', {
         };
         
         
-        
+        if (frm.doc.__islocal) {
+
+            frm.fields_dict['driver_details'].grid.toggle_display('end_date', frm.doc.status === 'started');    
+
+
+        }    
+        else
+        {
+            // frm.toggle_reqd('no_of_kms', !frm.doc.__islocal);
+            frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', frm.doc.status != 'started');
+        }
+
 
         frm.fields_dict['expense_type_child'].grid.get_field('driver_name').get_query = function(doc, cdt, cdn) {
             var child = locals[cdt][cdn];
