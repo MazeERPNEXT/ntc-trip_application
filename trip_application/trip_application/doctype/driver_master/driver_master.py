@@ -8,24 +8,24 @@ from frappe.model.document import Document
 class DriverMaster(Document):
 	pass
 
-@frappe.whitelist()
-@frappe.validate_and_sanitize_search_inputs
-def get_available_driver(doctype, txt, searchfield, start, page_len, filters):
-    res = frappe.get_all("Driver Master",filters={
-            "name": ("like", f"%{txt}%"),
-            "status": ("Active"),
-		})
-    print("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ_____")    
-    docs = []
+# @frappe.whitelist()
+# @frappe.validate_and_sanitize_search_inputs
+# def get_available_driver(doctype, txt, searchfield, start, page_len, filters):
+#     res = frappe.get_all("Driver Master",filters={
+#             "name": ("like", f"%{txt}%"),
+#             "status": ("Active"),
+# 		})
+# #     print("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ_____")    
+#     docs = []
     
-    for r in res:
-            print(r.name, "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ_____")    
-            docs.append(r.name)
+#     for r in res:
+#         #     print(r.name, "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ_____")    
+#             docs.append(r.name)
 
     
-    docs = set(list(docs))
+#     docs = set(list(docs))
     
-    return [[d] for d in docs]
+#     return [[d] for d in docs]
 
 # @frappe.whitelist()
 # @frappe.validate_and_sanitize_search_inputs

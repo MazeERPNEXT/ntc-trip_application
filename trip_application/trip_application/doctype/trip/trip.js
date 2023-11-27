@@ -12,14 +12,6 @@ frappe.ui.form.on('Trip', {
 			};
 		});
         
-        
-        // frm.set_query("driver_name",'expense_type_child', () => {
-		// 	return {
-		// 		query: "trip_application.trip_application.doctype.driver_master.driver_master.get_available_driver",//get_available_exp_driver",
-                
-		// 	};
-		// });
-        // window.location.reload();
 
 	},
     validate: function(frm) {
@@ -31,82 +23,80 @@ frappe.ui.form.on('Trip', {
         //     window.location.reload();
         // }    
         
-        // Validate To Date against From Date and Current Date
+        
         if (trip_date && trip_end_date) {
-            // Convert date strings to JavaScript Date objects for comparison
+            
             var fromDateObj = new Date(trip_date);
             var toDateObj = new Date(trip_end_date);
             var currentDateObj = new Date(current_date);
 
-            // Compare dates and show an error message if To Date is earlier than From Date
             if (toDateObj < fromDateObj) {
                 frappe.msgprint('"Trip End Date" cannot be earlier than "Trip Start Date".');
                 frappe.validated = false;
             }
 
-            // Show an error message if To Date is before the current date
-            // if (toDateObj < currentDateObj) {
-            //     frappe.msgprint('Trip End Date cannot be in the past.');
-            //     frappe.validated = false;
-            // }
         }
-        // console.log(cur_frm.doc.trip_end_date)
-        // if (cur_frm.doc.trip_end_date && cur_frm.doc.__islocal) {
-        //     cur_frm.toggle_reqd('trip_end_date', 1); // Make trip_end_date mandatory during update
-        //     frappe.msgprint('"Trip End Date"');
-        // }
+
+
+        if (frm.doc.no_of_kms === 0) {
+            frappe.msgprint(__('Zero value is not allowed for "No of KMS"'));
+            frappe.validated = false;
+        }
+
+        
+
+            
     },
+    
+    after_save: function(frm) {
+            window.location.reload();
+    },
+
     onload: function(frm) {
         frm.toggle_reqd('trip_end_date', !frm.doc.__islocal);
         frm.toggle_reqd('no_of_kms', !frm.doc.__islocal);
-        // frm.toggle_reqd('end_date', !frm.doc.driver_details.__islocal);
 
-        // frm.fields_dict['driver_details'].grid.set_read_only();
+        if (frm.doc.__islocal) {
+            frm.set_df_property('no_of_kms', 'read_only', 1);
+            frm.set_df_property('trip_end_date', 'read_only', 1);
+            frm.set_df_property('trip_remarks', 'read_only', 1);
+        }
+
         
-        // frm.fields_dict['driver_details'].grid.on_grid_rendered = function(grid) {
-        //     alert('Hi')
-        //     if (frm.doc.status === 'Completed') {
-        //         grid.set_column_disp('fieldname', true); // Replace 'fieldname' with the actual fieldname in driver_details
-        //         grid.set_column_disp('another_field', true); // Replace 'another_field' with another fieldname
-        //         // Repeat for other fieldyour_child_table_fieldnames in driver_details that you want to make read-only
-        //         grid.make_read_only();
-        //     }
-        // };
+
+        if (frm.doc.__islocal) {
+            var row = frappe.model.add_child(cur_frm.doc, 'driver_details', 'driver_details');
+            
+            row.driver_name = ''; 
+            row.start_date = null; 
+            row.end_date = null; 
+            
+            refresh_field('driver_details'); 
+        }
+
         
+
+
+
+
+
+
+
+    },
+    status: function(frm) {
+        if (frm.doc.status === "Started") {
+            frm.set_df_property('no_of_kms', 'read_only', 1);
+            frm.set_df_property('trip_end_date', 'read_only', 1);
+            frm.set_df_property('trip_remarks', 'read_only', 1);
+        }
+        if (frm.doc.status != "Started") {
+            frm.set_df_property('no_of_kms', 'read_only', 0);
+            frm.set_df_property('trip_end_date', 'read_only', 0);
+            frm.set_df_property('trip_remarks', 'read_only', 0);
+        }
         
-        // console.log('Trip form loaded'); // Check if onload event is triggered
 
-        // // Function to set the filter
-        // frm.cscript.setDriverNameFilter = function(driverName) {
-        //     console.log('Setting filter for driver_name:', driverName);
-        //     frm.fields_dict['expense_type_child'].grid.get_field('driver_name').get_query = function() {
-        //         return {
-        //             filters: {
-        //                 'driver_name': driverName // Apply filter based on driverName
-        //             }
-        //         };
-        //     };
-        // };
-
-        // // Listen for changes in driver_details and set the filter accordingly
-        // frm.cscript.driver_details_on_form_rendered = function(doc, cdt, cdn) {
-        //     var driverDetails = locals[cdt][cdn];
-        //     frm.cscript.setDriverNameFilter(driverDetails.driver_name);
-        // };
-
-        // // Reapply filter on refresh
-        // frm.cscript.refresh = function(doc) {
-        //     var driverDetails = frm.doc.driver_details || [];
-        //     if (driverDetails.length > 0) {
-        //         frm.cscript.setDriverNameFilter(driverDetails[0].driver_name);
-        //     }
-        // };
-
-
-
-
-
-
+        
 
     },
     
@@ -114,17 +104,14 @@ frappe.ui.form.on('Trip', {
         
         frm.fields_dict['driver_details'].grid.get_field('driver_name').get_query = function(doc, cdt, cdn) {
             var child = locals[cdt][cdn];
-            // console.log(doc.status)
-            // if (doc.status === 'Completed') {
-            //     frm.fields_dict['driver_details'].grid.set_read_only();
-            // }
+            
             return {
                 filters:[['status','=', "Active"],['name','not in',doc.driver_details.map(d => d.driver_name)]]
             };
         };
-
         
-
+        
+        
 
         frm.fields_dict['expense_type_child'].grid.get_field('driver_name').get_query = function(doc, cdt, cdn) {
             var child = locals[cdt][cdn];
@@ -138,34 +125,23 @@ frappe.ui.form.on('Trip', {
         
         
         
-        // frappe.ui.form.on('YourDoctype', 'refresh', frm => frm.fields_dict['driver_details'].grid.grid_rows.forEach(row => Object.values(row.fields_dict).forEach(field => field.df.read_only = 1)));
-
-
+        
         
     },
 
-
-    // before_validate: function(frm) {
-    //     alert(frm)
-    //     if (frm.doc.status === 'Completed') {
-    //         alert(frm.doc.status)
-
-    //         frm.set_df_property('driver_details', 'read_only', 1); 
-            
-    //         frm.fields_dict['driver_details'].grid.set_read_only(); 
-    //     }
-    // }
-       
-    
     
     
 });
 
-// frappe.ui.form.on('Driver Child Table', {
-// 	onload: function(frm) {
-//         frm.toggle_reqd('end_date', !frm.doc.__islocal);
-//     }    
-// });
+
+
+
+
+frappe.ui.form.on('Driver Child Table', {
+	// onload: function(frm) {
+    //     frm.toggle_reqd('end_date', !frm.doc.__islocal);
+    // }    
+});
 
 
 
@@ -186,4 +162,27 @@ frappe.ui.form.on('Trip Expense Type Child Table', {
     }
 
 });
+
+
+// frappe.ui.form.on('Driver Child Table', {
+//     onload: function(frm) {
+//         // Function to add a static row to the child table 'items'
+//         function addStaticRow() {
+//             var child = frm.add_child('driver_details', {}); // Adding an empty row
+//             // Modify properties of the row if needed
+//             child.fieldname = 'driver_name'; // Replace 'fieldname' with your actual field name
+//             // Set other field values if required
+//             // child.field2 = 'value2';
+//             // child.field3 = 'value3';
+//         }
+
+//         // Check if it's a new document
+//         if (frm.doc.__islocal) {
+//             // Add a static row to the child table 'items'
+//             addStaticRow();
+//         }
+//     }
+// });
+
+
 

@@ -42,8 +42,7 @@
    "fieldname": "end_date",
    "fieldtype": "Datetime",
    "in_list_view": 1,
-   "label": "End Date",
-   "reqd": 1
+   "label": "End Date"
   },
   {
    "fieldname": "column_break_rrij",
@@ -60,7 +59,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-24 18:29:35.245307",
+ "modified": "2023-11-27 13:28:26.173999",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Driver Child Table",
