@@ -50,6 +50,19 @@ frappe.ui.form.on('Trip', {
             }
         }
 
+        if (frm.doc.expense_type_child) {
+            for (var i = 0; i < frm.doc.expense_type_child.length; i++) {
+                var fromDateObj = new Date(frm.doc.trip_date);
+                var toDateObj = new Date(frm.doc.expense_type_child[i].expense_date);
+
+                if (toDateObj < fromDateObj) {
+                    frappe.msgprint('"Expense Type-Date" cannot be earlier than "Trip Start Date".');
+                    frappe.validated = false;
+                    return;
+                }
+            }
+        }
+
         if (frm.doc.driver_details) {
             for (var i = 0; i < frm.doc.driver_details.length; i++) {
                 
