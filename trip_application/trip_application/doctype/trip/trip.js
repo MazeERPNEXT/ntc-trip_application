@@ -44,7 +44,7 @@ frappe.ui.form.on('Trip', {
 
                 var fromDateObj = new Date(frm.doc.trip_date);
                 var toDateObj = (!!frm.doc.driver_details[i].start_date ? new Date(frm.doc.driver_details[i].start_date) : currentDateObj );
-
+                // console.log(toDateObj)
                 if (toDateObj < fromDateObj) {
                     frappe.msgprint('"Driver Details-Start Date" cannot be earlier than "Trip Start Date".');
                     frappe.validated = false;
