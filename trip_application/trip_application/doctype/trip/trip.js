@@ -86,7 +86,7 @@ frappe.ui.form.on('Trip', {
 
         
 
-        if (frm.doc.no_of_kms === 0 && frm.doc.status != 'Started') {
+        if (frm.doc.no_of_kms === 0 && !['Started','Cancelled'].includes(frm.doc.status)) {
             frappe.msgprint(__('Zero value is not allowed for "No of KMS"'));
             frappe.validated = false;
             
@@ -164,7 +164,7 @@ frappe.ui.form.on('Trip', {
             frm.toggle_reqd('no_of_kms', frm.doc.status != "Started");
             
 
-            frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', frm.doc.status !== 'Started');    
+            frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', !['Started','Cancelled'].includes(frm.doc.status));    
             
             // frm.fields_dict['driver_details'].grid.toggle_display('end_date', frm.doc.status === 'Started');
         
@@ -173,6 +173,8 @@ frappe.ui.form.on('Trip', {
         if (frm.doc.status === "Cancelled") {
 
             frm.toggle_reqd('no_of_kms', frm.doc.status != "Cancelled");
+
+            frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', !['Started','Cancelled'].includes(frm.doc.status));
 
         }
 
@@ -217,7 +219,7 @@ frappe.ui.form.on('Trip', {
         // frm.fields_dict['driver_details'].grid.toggle_display('end_date', frm.doc.status === 'Started');
         
         
-        
+        frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', !['Started','Cancelled'].includes(frm.doc.status));
 
         frm.fields_dict['expense_type_child'].grid.get_field('driver_name').get_query = function(doc, cdt, cdn) {
             var child = locals[cdt][cdn];
