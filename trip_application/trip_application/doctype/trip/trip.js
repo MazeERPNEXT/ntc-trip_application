@@ -132,7 +132,6 @@ frappe.ui.form.on('Trip', {
             frm.set_df_property('trip_end_date', 'read_only', 1);
             frm.set_df_property('trip_remarks', 'read_only', 1);
         }
-
         
 
         if (frm.doc.__islocal) {
@@ -171,6 +170,13 @@ frappe.ui.form.on('Trip', {
         
         }
 
+        if (frm.doc.status === "Cancelled") {
+
+            frm.toggle_reqd('no_of_kms', frm.doc.status != "Cancelled");
+
+        }
+
+        
         
 
         if (frm.doc.status != "Started") {
@@ -179,14 +185,17 @@ frappe.ui.form.on('Trip', {
             frm.set_df_property('trip_remarks', 'read_only', 0);
 
             frm.toggle_reqd('trip_end_date', frm.doc.__islocal || !frm.doc.__islocal);
+
+            frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', !['Started','Cancelled'].includes(frm.doc.status));
+            
+        }
+           
+
+        if (frm.doc.status != "Cancelled" && frm.doc.status != "Started") {
+
             frm.toggle_reqd('no_of_kms', frm.doc.__islocal || !frm.doc.__islocal);
 
-            frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', frm.doc.status !== 'started');
-            
-            // frm.fields_dict['driver_details'].grid.toggle_display('end_date', frm.doc.status === 'started');
         }
-        
-
         
         
 

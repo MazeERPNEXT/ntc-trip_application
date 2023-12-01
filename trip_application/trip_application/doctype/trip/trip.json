@@ -28,7 +28,8 @@
   "driver_details_column",
   "driver_details",
   "section_break_whvj",
-  "expense_type_child"
+  "expense_type_child",
+  "amended_from"
  ],
  "fields": [
   {
@@ -150,11 +151,21 @@
   {
    "fieldname": "column_break_vrot",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Trip",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-11-27 12:53:03.265385",
+ "modified": "2023-12-01 13:24:46.810187",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",
