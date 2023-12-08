@@ -214,6 +214,10 @@ frappe.ui.form.on('Trip', {
             };
         };
 
+        if (frm.doc.status === "Started") {
+            frm.page.set_primary_action("Save",cur_frm.save.bind(cur_frm,"Save"))
+        }    
+
         frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', frm.doc.status !== 'Started');    
             
         // frm.fields_dict['driver_details'].grid.toggle_display('end_date', frm.doc.status === 'Started');
