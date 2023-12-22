@@ -12,18 +12,20 @@
   "naming_series",
   "trip_date",
   "vehicle_number",
-  "material_name",
   "from",
-  "column_break_kaoe",
   "to",
+  "column_break_kaoe",
+  "material_name",
   "purpose",
   "trip_amount",
   "status",
   "section_break_imal",
+  "starting_km",
+  "ending_km",
   "no_of_kms",
-  "trip_end_date",
   "column_break_vrot",
   "trip_remarks",
+  "trip_end_date",
   "section_break_wbhb",
   "driver_details_column",
   "driver_details",
@@ -80,7 +82,7 @@
    "fieldtype": "Long Text",
    "in_list_view": 1,
    "label": "Trip Remarks",
-   "max_height": "100px"
+   "max_height": "130px"
   },
   {
    "fieldname": "purpose",
@@ -160,12 +162,27 @@
    "options": "Trip",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "starting_km",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Starting KM",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "ending_km",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Ending KM",
+   "non_negative": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-01 13:24:46.810187",
+ "modified": "2023-12-22 11:52:20.803411",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",

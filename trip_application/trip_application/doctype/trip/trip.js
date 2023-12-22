@@ -91,6 +91,14 @@ frappe.ui.form.on('Trip', {
             frappe.validated = false;
             
         }
+        if (frm.doc.ending_km === 0 && !['Started','Cancelled'].includes(frm.doc.status)) {
+            frappe.msgprint(__('Zero value is not allowed for "Ending KM"'));
+            frappe.validated = false;
+        }
+        if (frm.doc.starting_km === 0) {
+            frappe.msgprint(__('Zero value is not allowed for "Starting KM"'));
+            frappe.validated = false;
+        }
 
         
 
@@ -107,20 +115,23 @@ frappe.ui.form.on('Trip', {
 
         
         
-        if (frm.doc.status != "Started") {
+        if (frm.doc.status !== "Started") {
         
             frm.toggle_reqd('trip_end_date', !frm.doc.__islocal);
             frm.toggle_reqd('no_of_kms', !frm.doc.__islocal);
+            frm.toggle_reqd('ending_km', !frm.doc.__islocal);
 
         }   
         
-        if (frm.doc.status != "Started") {
+        if (frm.doc.status !== "Started") {
             frm.set_df_property('status', 'read_only', 1);
+            frm.set_df_property('starting_km', 'read_only', 1);
 
         }
 
         if (frm.doc.status === "Started") {
             frm.set_df_property('no_of_kms', 'read_only', 1);
+            frm.set_df_property('ending_km', 'read_only', 1);
             frm.set_df_property('trip_end_date', 'read_only', 1);
             frm.set_df_property('trip_remarks', 'read_only', 1);
 
@@ -129,6 +140,7 @@ frappe.ui.form.on('Trip', {
 
         if (frm.doc.__islocal) {
             frm.set_df_property('no_of_kms', 'read_only', 1);
+            frm.set_df_property('ending_km', 'read_only', 1);
             frm.set_df_property('trip_end_date', 'read_only', 1);
             frm.set_df_property('trip_remarks', 'read_only', 1);
         }
@@ -157,11 +169,13 @@ frappe.ui.form.on('Trip', {
         
         if (frm.doc.status === "Started") {
             frm.set_df_property('no_of_kms', 'read_only', 1);
+            frm.set_df_property('ending_km', 'read_only', 1);
             frm.set_df_property('trip_end_date', 'read_only', 1);
             frm.set_df_property('trip_remarks', 'read_only', 1);
 
             frm.toggle_reqd('trip_end_date', frm.doc.status != "Started");
             frm.toggle_reqd('no_of_kms', frm.doc.status != "Started");
+            frm.toggle_reqd('ending_km', frm.doc.status != "Started");
             
 
             frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', !['Started','Cancelled'].includes(frm.doc.status));    
@@ -173,6 +187,7 @@ frappe.ui.form.on('Trip', {
         if (frm.doc.status === "Cancelled") {
 
             frm.toggle_reqd('no_of_kms', frm.doc.status != "Cancelled");
+            frm.toggle_reqd('ending_km', frm.doc.status != "Cancelled");
 
             frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', !['Started','Cancelled'].includes(frm.doc.status));
 
@@ -183,6 +198,7 @@ frappe.ui.form.on('Trip', {
 
         if (frm.doc.status != "Started") {
             frm.set_df_property('no_of_kms', 'read_only', 0);
+            frm.set_df_property('ending_km', 'read_only', 0);
             frm.set_df_property('trip_end_date', 'read_only', 0);
             frm.set_df_property('trip_remarks', 'read_only', 0);
 
@@ -196,6 +212,7 @@ frappe.ui.form.on('Trip', {
         if (frm.doc.status != "Cancelled" && frm.doc.status != "Started") {
 
             frm.toggle_reqd('no_of_kms', frm.doc.__islocal || !frm.doc.__islocal);
+            frm.toggle_reqd('ending_km', frm.doc.__islocal || !frm.doc.__islocal);
 
         }
         

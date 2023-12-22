@@ -153,13 +153,13 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Active\nIn Active",
+   "options": "Active\nMaintenance\nIn Active",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-22 15:29:26.930248",
+ "modified": "2023-12-22 11:42:38.354848",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Vehicle Master",
