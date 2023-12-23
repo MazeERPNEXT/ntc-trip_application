@@ -5,7 +5,7 @@ import locale
 from frappe.utils import now_datetime, nowdate, today
 from frappe import db
 from datetime import datetime
-
+from frappe.utils import get_url
 
 @frappe.whitelist()
 def workspace():
@@ -54,7 +54,7 @@ def workspace():
     Un_Utilized_vehicle = Vehicle_Master_status_count - Utilized_vehicle
 
     # Get a list of trips with specific fields
-    invoices = frappe.get_list('Trip', fields=['name', 'vehicle_number', 'purpose', 'trip_amount', 'status'])
+    invoices = frappe.get_list('Trip', fields=['name', 'vehicle_number', 'purpose', 'no_of_kms','trip_amount', 'status'])
 
     today_status_count = frappe.get_list(
         'Trip',
@@ -72,15 +72,19 @@ def workspace():
     total_kms = sum(float(invoice.get('no_of_kms', 0)) for invoice in invoices)
     today_amount = sum(float(invoice.get('trip_amount', 0)) for invoice in today_status_count)
     today_kms = sum(float(invoice.get('no_of_kms', 0)) for invoice in today_status_count)
-    invoices_list = frappe.get_list('Trip', fields=['name', 'vehicle_number', 'purpose', 'trip_amount', 'status'])
+    invoices_list = frappe.get_list('Trip', fields=['name', 'vehicle_number', 'purpose', 'trip_amount', 'status'],order_by='name DESC',start=0, page_length=5,)
     total_records = len(invoices_list)
     html_table = '<table class="table"><thead class="bg-light"><tr>'
     html_table += '<th>Trip ID</th><th>Vehicle Number</th><th>Purpose</th><th>Trip Amount</th><th>Status</th></tr></thead><tbody>'
 
     # Iterate through invoices and append to the HTML table
     for invoice in invoices_list:
+        base_url = get_url()
+        # base_urls = frappe.urllib.get_base_url()
+        # frappe.msgprint("{base_urls}")
+        Urls = f'{base_url}:8000/app/trip/{invoice.get("name")}'
         html_table += '<tr>'
-        html_table += f'<td><div class="d-flex align-items-center"><div class="table-user-name"><p class="mb-0 font-weight-medium">{invoice.get("name")}</p></div></div></td>'
+        html_table += f'<td><div class="d-flex align-items-center"><div class="table-user-name"><p class="mb-0 font-weight-medium Formview  "><a href="{Urls}">{invoice.get("name")}</a></p></div></div></td>'
         html_table += f'<td>{invoice.get("vehicle_number")}</td>'
         html_table += f'<td>{invoice.get("purpose")}</td>'
         # Set the locale to India
@@ -106,3 +110,20 @@ def workspace():
     return total_amount, total_count, total_kms, vehicle_count, today_amount, today_count, today_kms, \
            Vehicle_Master_status_count, Driver_Master_status_count, Utilized_vehicle, In_Active_vehicle, \
            In_Active_Driver, Un_Utilized_vehicle, html_table
+@frappe.whitelist()
+def get_date_range(from_date, to_date):
+    start_of_today = from_date + " 00:00:00"
+    end_of_today = to_date + " 23:59:59"
+    
+    invoices = frappe.get_list(
+        'Trip',
+        fields=['name', 'vehicle_number', 'purpose', 'trip_amount', 'status','no_of_kms'],
+        filters={
+            'trip_date': ['between', [start_of_today, end_of_today]],
+        }
+    )
+    
+    total_amount = sum(float(invoice.get('trip_amount', 0)) for invoice in invoices)
+    total_kms = sum(float(invoice.get('no_of_kms', 0)) for invoice in invoices)
+    number_of_trip = len(invoices)
+    return total_amount,number_of_trip,total_kms
