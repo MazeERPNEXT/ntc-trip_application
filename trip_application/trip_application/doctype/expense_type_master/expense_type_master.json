@@ -8,7 +8,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "expense_type"
+  "expense_type",
+  "column_break_pzhl",
+  "expense_amount_type"
  ],
  "fields": [
   {
@@ -18,11 +20,23 @@
    "label": "Expense Type",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "column_break_pzhl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expense_amount_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Expense Amount Type",
+   "options": "Passive\nNegative",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-03 15:57:08.307509",
+ "modified": "2023-12-23 17:43:29.866843",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Expense Type Master",

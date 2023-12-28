@@ -17,6 +17,7 @@
   "column_break_kaoe",
   "material_name",
   "purpose",
+  "trip_advance_amount",
   "trip_amount",
   "status",
   "section_break_imal",
@@ -177,12 +178,19 @@
    "in_list_view": 1,
    "label": "Ending KM",
    "non_negative": 1
+  },
+  {
+   "fieldname": "trip_advance_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Trip Advance Amount",
+   "non_negative": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-22 11:52:20.803411",
+ "modified": "2023-12-23 17:47:57.266149",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",

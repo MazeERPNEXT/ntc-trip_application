@@ -126,7 +126,7 @@ frappe.ui.form.on('Trip', {
         if (frm.doc.status !== "Started") {
             frm.set_df_property('status', 'read_only', 1);
             frm.set_df_property('starting_km', 'read_only', 1);
-
+            frm.set_df_property('trip_advance_amount', 'read_only', 1);
         }
 
         if (frm.doc.status === "Started") {
@@ -134,6 +134,7 @@ frappe.ui.form.on('Trip', {
             frm.set_df_property('ending_km', 'read_only', 1);
             frm.set_df_property('trip_end_date', 'read_only', 1);
             frm.set_df_property('trip_remarks', 'read_only', 1);
+            frm.set_df_property('trip_advance_amount', 'read_only', 0);
 
         }
 
@@ -172,6 +173,7 @@ frappe.ui.form.on('Trip', {
             frm.set_df_property('ending_km', 'read_only', 1);
             frm.set_df_property('trip_end_date', 'read_only', 1);
             frm.set_df_property('trip_remarks', 'read_only', 1);
+            frm.set_df_property('trip_advance_amount', 'read_only', 0);
 
             frm.toggle_reqd('trip_end_date', frm.doc.status != "Started");
             frm.toggle_reqd('no_of_kms', frm.doc.status != "Started");
@@ -196,11 +198,12 @@ frappe.ui.form.on('Trip', {
         
         
 
-        if (frm.doc.status != "Started") {
+        if (frm.doc.status !== "Started") {
             frm.set_df_property('no_of_kms', 'read_only', 0);
             frm.set_df_property('ending_km', 'read_only', 0);
             frm.set_df_property('trip_end_date', 'read_only', 0);
             frm.set_df_property('trip_remarks', 'read_only', 0);
+            frm.set_df_property('trip_advance_amount', 'read_only', 1);
 
             frm.toggle_reqd('trip_end_date', frm.doc.__islocal || !frm.doc.__islocal);
 
@@ -209,7 +212,7 @@ frappe.ui.form.on('Trip', {
         }
            
 
-        if (frm.doc.status != "Cancelled" && frm.doc.status != "Started") {
+        if (frm.doc.status !== "Cancelled" && frm.doc.status !== "Started") {
 
             frm.toggle_reqd('no_of_kms', frm.doc.__islocal || !frm.doc.__islocal);
             frm.toggle_reqd('ending_km', frm.doc.__islocal || !frm.doc.__islocal);
@@ -233,6 +236,7 @@ frappe.ui.form.on('Trip', {
 
         if (frm.doc.status === "Started") {
             frm.page.set_primary_action("Save",cur_frm.save.bind(cur_frm,"Save"))
+            frm.set_df_property('trip_advance_amount', 'read_only', 0);
         }    
 
         frm.fields_dict['driver_details'].grid.toggle_reqd('end_date', frm.doc.status !== 'Started');    
@@ -276,18 +280,40 @@ frappe.ui.form.on('Driver Child Table', {
 
 
 frappe.ui.form.on('Trip Expense Type Child Table', {
+
+    expense_type: function(frm, cdt, cdn) {
+        var child = locals[cdt][cdn];
+        
+        frappe.db.get_value('Expense Type Master', { name: child.expense_type }, ['expense_amount_type'])
+            .then(result => {
+                // console.log(result.message.expense_amount_type)
+                if (result.message.expense_amount_type === 'Negative') {
+                    console.log(cur_frm.doc.expense_type_child.expense_amount)
+                    frappe.msgprint('Negative');
+                } else {
+                    frappe.msgprint('Passive');
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },
+
     expense_amount: function(frm, cdt, cdn) {
+
+
         
         var child = locals[cdt][cdn];
 
         var child_table = frm.doc.expense_type_child || [];
-        // console.log(child_table);
+        
 
         var total_amount = child_table.reduce(function(sum, row) {
             return sum + (row.expense_amount || 0);
         }, 0);
 
         frappe.model.set_value(frm.doctype, frm.docname, 'trip_amount', total_amount);
+
     }
 
 });
