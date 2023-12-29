@@ -252,15 +252,36 @@ frappe.ui.form.on('Trip', {
                 filters: [['name','in', doc.driver_details.map(d => d.driver_name)]]
             };
         };
-
-        
-        
-        
-        
-        
-        
-        
     },
+    change_number_nature : function(child){
+        frappe.db.get_value('Expense Type Master', { name: child.expense_type }, ['expense_amount_type'])
+        .then(result => {
+            
+            if (result.message.expense_amount_type == 'Negative') {
+                child.expense_amount = Math.abs(child.expense_amount || 0)*-1;
+            } else {
+                child.expense_amount = Math.abs(child.expense_amount || 0)
+            }
+            refresh_field('expense_type_child');
+
+            setTimeout(()=>cur_frm.events.calculate_total_and_balance(cur_frm),500);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    },
+
+    calculate_total_and_balance:function (frm) {
+        var child_table = frm.doc.expense_type_child || [];
+        
+        var total_amount = child_table.reduce(function(sum, row) {
+            return sum + (row.expense_amount || 0);
+        }, 0);
+
+        frappe.model.set_value(frm.doctype, frm.docname, 'trip_amount', total_amount);
+        frappe.model.set_value(frm.doctype, frm.docname, 'balance_amount', parseFloat(frm.doc.trip_advance_amount || 0) - parseFloat(total_amount));
+
+    }
 
     
     
@@ -283,37 +304,12 @@ frappe.ui.form.on('Trip Expense Type Child Table', {
 
     expense_type: function(frm, cdt, cdn) {
         var child = locals[cdt][cdn];
-        
-        frappe.db.get_value('Expense Type Master', { name: child.expense_type }, ['expense_amount_type'])
-            .then(result => {
-                // console.log(result.message.expense_amount_type)
-                if (result.message.expense_amount_type === 'Negative') {
-                    console.log(cur_frm.doc.expense_type_child.expense_amount)
-                    frappe.msgprint('Negative');
-                } else {
-                    frappe.msgprint('Passive');
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        frm.events.change_number_nature(child)
     },
 
     expense_amount: function(frm, cdt, cdn) {
-
-
-        
         var child = locals[cdt][cdn];
-
-        var child_table = frm.doc.expense_type_child || [];
-        
-
-        var total_amount = child_table.reduce(function(sum, row) {
-            return sum + (row.expense_amount || 0);
-        }, 0);
-
-        frappe.model.set_value(frm.doctype, frm.docname, 'trip_amount', total_amount);
-
+        frm.events.change_number_nature(child)
     }
 
 });

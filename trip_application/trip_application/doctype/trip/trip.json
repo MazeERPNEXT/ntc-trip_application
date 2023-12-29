@@ -19,7 +19,9 @@
   "purpose",
   "trip_advance_amount",
   "trip_amount",
+  "balance_amount",
   "status",
+  "currency",
   "section_break_imal",
   "starting_km",
   "ending_km",
@@ -128,9 +130,10 @@
   },
   {
    "fieldname": "trip_amount",
-   "fieldtype": "Float",
+   "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Trip Amount",
+   "options": "currency",
    "read_only": 1
   },
   {
@@ -181,16 +184,33 @@
   },
   {
    "fieldname": "trip_advance_amount",
-   "fieldtype": "Float",
+   "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Trip Advance Amount",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "currency"
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Currency"
+  },
+  {
+   "fieldname": "balance_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Balance Amount",
+   "options": "currency",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-23 17:47:57.266149",
+ "modified": "2023-12-28 19:10:04.381322",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",
