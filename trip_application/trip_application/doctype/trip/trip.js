@@ -279,7 +279,7 @@ frappe.ui.form.on('Trip', {
         }, 0);
 
         frappe.model.set_value(frm.doctype, frm.docname, 'trip_amount', total_amount);
-        frappe.model.set_value(frm.doctype, frm.docname, 'balance_amount', parseFloat(frm.doc.trip_advance_amount || 0) + parseFloat(total_amount));
+        frappe.model.set_value(frm.doctype, frm.docname, 'balance_amount', parseFloat(frm.doc.trip_advance_amount || 0) - parseFloat(total_amount));
 
     }
 
