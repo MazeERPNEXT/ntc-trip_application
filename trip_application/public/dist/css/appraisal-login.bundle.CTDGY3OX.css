@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap";
 
-/* ../../../../../tmp/tmp-1142033-46I6yvLkhJS7/trip_application/trip_application/public/scss/appraisal-login.bundle.css */
+/* ../../../../../tmp/tmp-193513-Y1chXL8jMHox/trip_application/trip_application/public/scss/appraisal-login.bundle.css */
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +46,9 @@ body {
 }
 .container span {
   font-size: 12px;
+  position: absolute;
+  left: 295px;
+  top: 218px;
 }
 .container1 a {
   color: #333;
@@ -481,4 +484,4 @@ body {
   --icon-stroke: currentColor;
   --icon-fill-bg: var(--btn-primary);
 }
-/*# sourceMappingURL=appraisal-login.bundle.ECO3ZW5Q.css.map */
+/*# sourceMappingURL=appraisal-login.bundle.CTDGY3OX.css.map */
