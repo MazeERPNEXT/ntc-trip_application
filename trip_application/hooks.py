@@ -13,6 +13,14 @@ website_context = {
 
 fixtures = [
     'Website Settings',
+{"doctype": "Role", "filters": [["name", "in", (
+        "NTC Admin", "NTC Employee")]]},
+    {"doctype": "Role Profile", "filters": [["name", "in", (
+        "NTC Admin", "NTC Employee")]]},
+    {"doctype": "Custom DocPerm", "filters": [["role", "in", (
+        "NTC Admin", "NTC Employee")]]},
+    # export report permissions
+    "Custom Role",
 ]
 # required_apps = []
 
