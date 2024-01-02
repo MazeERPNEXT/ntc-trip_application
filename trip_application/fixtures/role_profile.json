@@ -13,5 +13,20 @@
     "role": "NTC Admin"
    }
   ]
- }
+ },
+ {
+    "docstatus": 0,
+    "doctype": "Role Profile",
+    "modified": "2024-01-02 16:37:23.069532",
+    "name": "NTC Employee",
+    "role_profile": "NTC Employee",
+    "roles": [
+     {
+      "parent": "NTC Employee",
+      "parentfield": "roles",
+      "parenttype": "Role Profile",
+      "role": "NTC Employee"
+     }
+    ]
+}
 ]
