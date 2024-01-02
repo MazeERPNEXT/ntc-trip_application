@@ -1,37 +1,30 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{#####}-{expense_type}",
- "creation": "2023-11-02 18:17:02.047668",
- "default_view": "List",
+ "autoname": "field:advance_type",
+ "creation": "2023-12-30 16:49:53.832638",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "expense_type",
-  "column_break_pzhl"
+  "advance_type"
  ],
  "fields": [
   {
-   "fieldname": "expense_type",
+   "fieldname": "advance_type",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Expense Type",
+   "label": "Advance Type",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "column_break_pzhl",
-   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-30 17:02:11.630719",
+ "modified": "2023-12-30 16:51:42.843760",
  "modified_by": "Administrator",
  "module": "Trip Application",
- "name": "Expense Type Master",
- "naming_rule": "Expression",
+ "name": "Advance Type Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

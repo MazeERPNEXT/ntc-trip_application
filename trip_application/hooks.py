@@ -4,6 +4,16 @@ app_publisher = "MazeWorks"
 app_description = "Trip Application"
 app_email = "jeyanthkumar@mazeworkssolutions.com"
 app_license = "mit"
+app_logo_url = "/assets/trip_application/images/logo.png"
+
+website_context = {
+    "favicon": "/assets/trip_application/images/favicon/favicon.png",
+    "splash_image": "/assets/trip_application/images/logo.png"
+}
+
+fixtures = [
+    'Website Settings',
+]
 # required_apps = []
 
 # Includes in <head>
