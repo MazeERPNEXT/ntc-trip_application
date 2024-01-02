@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"i0m7JCC-EL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\"><b>Trip Application</b></span>\",\"col\":12}},{\"id\":\"DaPBi4-AX1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"w4LQq1dHWe\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\" style=\\\"\\\"><b>Master</b></span>\",\"col\":12}},{\"id\":\"fBy1sj8R6b\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Master\",\"col\":3}},{\"id\":\"lHKoUiZyOx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Driver Master\",\"col\":3}},{\"id\":\"EYOkJHx42r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Type Master\",\"col\":3}},{\"id\":\"YgYIcllfYb\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"TjpWubAlDR\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Sub Master</b><b></b></span>\",\"col\":12}},{\"id\":\"dfEJSZ84sp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Make\",\"col\":3}},{\"id\":\"RYQ4QvGKXt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Model\",\"col\":3}},{\"id\":\"FkbGaQzucl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Type\",\"col\":3}},{\"id\":\"E-sxG61T23\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Document Type\",\"col\":3}},{\"id\":\"EgdddqEwXY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Document Issued\",\"col\":3}},{\"id\":\"7N3Lt9059Q\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"lQ1x3Ye9uV\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\" style=\\\"\\\">Transaction</span><br>\",\"col\":6}},{\"id\":\"FFl3tgNGZE\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Trip Report<b></b></span>\",\"col\":6}},{\"id\":\"weMz6i7w9G\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trip\",\"col\":3}},{\"id\":\"Xpt3orUhZ6\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"GZyRFI4uTg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trip Report\",\"col\":3}}]",
+ "content": "[{\"id\":\"i0m7JCC-EL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\"><b>Trip Application</b></span>\",\"col\":12}},{\"id\":\"DaPBi4-AX1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"w4LQq1dHWe\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\" style=\\\"\\\"><b>Master</b></span>\",\"col\":12}},{\"id\":\"fBy1sj8R6b\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Master\",\"col\":3}},{\"id\":\"lHKoUiZyOx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Driver Master\",\"col\":3}},{\"id\":\"EYOkJHx42r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Type Master\",\"col\":3}},{\"id\":\"d6t6qSUU-Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Advance Type\",\"col\":3}},{\"id\":\"YgYIcllfYb\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"TjpWubAlDR\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Sub Master</b><b></b></span>\",\"col\":12}},{\"id\":\"dfEJSZ84sp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Make\",\"col\":3}},{\"id\":\"RYQ4QvGKXt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Model\",\"col\":3}},{\"id\":\"FkbGaQzucl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Type\",\"col\":3}},{\"id\":\"E-sxG61T23\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Document Type\",\"col\":3}},{\"id\":\"EgdddqEwXY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Document Issued\",\"col\":3}},{\"id\":\"7N3Lt9059Q\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"lQ1x3Ye9uV\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\" style=\\\"\\\">Transaction</span><br>\",\"col\":6}},{\"id\":\"FFl3tgNGZE\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Trip Report<b></b></span>\",\"col\":6}},{\"id\":\"weMz6i7w9G\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trip\",\"col\":3}},{\"id\":\"Xpt3orUhZ6\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"GZyRFI4uTg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trip Report\",\"col\":3}}]",
  "creation": "2023-11-01 15:21:32.315176",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Trip Application",
  "links": [],
- "modified": "2023-12-22 11:10:45.308183",
+ "modified": "2024-01-02 14:17:41.725398",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip Application",
@@ -23,8 +23,16 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 2.0,
+ "sequence_id": 1.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Advance Type",
+   "link_to": "Advance Type Master",
+   "stats_filter": "[[\"Advance Type Master\",\"name\",\"is\",\"set\",false]]",
+   "type": "DocType"
+  },
   {
    "color": "Blue",
    "doc_view": "List",
