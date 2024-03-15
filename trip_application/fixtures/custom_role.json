@@ -1,0 +1,31 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Custom Role",
+  "modified": "2024-01-02 16:34:57.385396",
+  "name": "784bcbfb3d",
+  "page": null,
+  "ref_doctype": "Trip",
+  "report": "Trip Report",
+  "roles": [
+   {
+    "parent": "784bcbfb3d",
+    "parentfield": "roles",
+    "parenttype": "Custom Role",
+    "role": "System Manager"
+   },
+   {
+    "parent": "784bcbfb3d",
+    "parentfield": "roles",
+    "parenttype": "Custom Role",
+    "role": "NTC Admin"
+   },
+   {
+    "parent": "784bcbfb3d",
+    "parentfield": "roles",
+    "parenttype": "Custom Role",
+    "role": "NTC Employee"
+   }
+  ]
+ }
+]

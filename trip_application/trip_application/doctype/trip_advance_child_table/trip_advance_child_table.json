@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-12-30 15:48:24.927922",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "advance_type",
+  "column_break_pjtu",
+  "driver_name",
+  "column_break_dwsq",
+  "advance_amount"
+ ],
+ "fields": [
+  {
+   "default": "Initial Amount",
+   "fieldname": "advance_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Advance Type",
+   "options": "Advance Type Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pjtu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver Name",
+   "options": "Driver Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dwsq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "advance_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Advance Amount",
+   "options": "currency",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-02 14:22:35.681647",
+ "modified_by": "Administrator",
+ "module": "Trip Application",
+ "name": "Trip Advance Child Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

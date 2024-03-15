@@ -19,7 +19,9 @@
   "purpose",
   "trip_advance_amount",
   "trip_amount",
+  "balance_amount",
   "status",
+  "currency",
   "section_break_imal",
   "starting_km",
   "ending_km",
@@ -30,6 +32,8 @@
   "section_break_wbhb",
   "driver_details_column",
   "driver_details",
+  "advance_details_section",
+  "advance_details",
   "section_break_whvj",
   "expense_type_child",
   "amended_from"
@@ -76,7 +80,8 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "No of KMS",
-   "non_negative": 1
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "trip_remarks",
@@ -127,10 +132,13 @@
    "fieldtype": "Section Break"
   },
   {
+   "default": "0",
    "fieldname": "trip_amount",
-   "fieldtype": "Float",
+   "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Trip Amount",
+   "non_negative": 1,
+   "options": "currency",
    "read_only": 1
   },
   {
@@ -180,17 +188,45 @@
    "non_negative": 1
   },
   {
+   "default": "0",
    "fieldname": "trip_advance_amount",
-   "fieldtype": "Float",
+   "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Trip Advance Amount",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "balance_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Balance Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "advance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Advance Details"
+  },
+  {
+   "fieldname": "advance_details",
+   "fieldtype": "Table",
+   "options": "Trip Advance Child Table"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2023-12-23 17:47:57.266149",
+ "modified": "2023-12-30 19:06:13.683482",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",

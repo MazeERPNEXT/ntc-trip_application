@@ -61,7 +61,7 @@
   }
 
   .container span {
-    font-size: 12px;
+    display: none;
   }
 
   .container1 a {
@@ -127,7 +127,7 @@
     background-color: #eee;
     border: none;
     margin: 0;
-    padding: 10px 15px;
+    padding: 10px 25px;
     font-size: 13px;
     border-radius: 8px;
     width: 44%;
@@ -314,10 +314,7 @@
 				}
 			}
 
-			.form-label {
-			}
-
-      .login_page {
+      .login_page{
         font-weight: bolder; 
         color: black;
         font-size: 30px;
@@ -325,22 +322,20 @@
         margin-bottom: 30px;
       }
 
-
-
 			.forgot-password-message {
 				text-align: left;
 				line-height: 1;
 
-				> * {
+				* {
 					color: var(--text-light);
 				}
 			}
 
 			.field-icon {
-				left: 9px;
-				top: 5px;
+				left: 45px;
+				top: 120px;
 				position: absolute;
-				z-index: 2;
+				// z-index: 2;
 			}
 
 			.email-field,
@@ -461,4 +456,25 @@
   white-space: nowrap;
   --icon-stroke: currentColor;
   --icon-fill-bg: var(--btn-primary);
+}
+.email-icon {
+  left: 45px!important;
+  top: 135px!important;
+  position: absolute;
+  // z-index: 2;
+}
+
+.password-icon {
+  left: 45px!important;
+  top: 210px!important;
+  position: absolute;
+  // z-index: 2;
+}
+
+.login_page{
+  font-weight: 700; 
+  color: black;
+  font-size: 25px;
+  padding-left: 150px;
+  // margin-bottom: 30px;
 }
