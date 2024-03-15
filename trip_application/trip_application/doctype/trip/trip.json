@@ -10,6 +10,7 @@
  "field_order": [
   "section_break_npmc",
   "naming_series",
+  "bill_number",
   "trip_date",
   "vehicle_number",
   "from",
@@ -174,7 +175,7 @@
   },
   {
    "fieldname": "starting_km",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Starting KM",
    "non_negative": 1,
@@ -182,7 +183,7 @@
   },
   {
    "fieldname": "ending_km",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Ending KM",
    "non_negative": 1
@@ -222,11 +223,19 @@
    "fieldname": "advance_details",
    "fieldtype": "Table",
    "options": "Trip Advance Child Table"
+  },
+  {
+   "fieldname": "bill_number",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Bill Number",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-30 19:06:13.683482",
+ "modified": "2024-03-15 16:01:29.447951",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",
