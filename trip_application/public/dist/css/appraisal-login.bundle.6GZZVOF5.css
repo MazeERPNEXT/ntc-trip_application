@@ -1,0 +1,484 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap";
+
+/* ../../../../../tmp/tmp-15233-cZYORG2T51X6/trip_application/trip_application/public/scss/appraisal-login.bundle.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background-color: #c9d6ff;
+}
+.toggle-container h1 {
+  font-size: 2em;
+  color: #fff;
+}
+.container1 {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+}
+#container {
+  background-color: #fff;
+  border-radius: 30px 0 0 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  padding: 0px 40px;
+}
+#container h1 {
+  font-size: 2em;
+}
+.container1 p {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
+}
+.container span {
+  font-size: 12px;
+}
+.container1 a {
+  color: #333;
+  font-size: 13px;
+  text-decoration: none;
+  margin: 15px 0 10px;
+}
+.container1 button {
+  background-color: linear-gradient(to right, #5c6bc0, #14d0d6);
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.container1 button.hidden {
+  background-color: transparent;
+  border-color: #fff;
+}
+.container1 form {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.navbar-light {
+  border-bottom: none;
+  background: none;
+}
+.navbar-light .navbar-brand {
+  color: rgba(223, 225, 231, 0);
+  pointer-events: none;
+}
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus {
+  color: rgba(223, 225, 231, 0);
+}
+.signin1 {
+  padding-top: 50px;
+}
+.container1 input {
+  background-color: #eee;
+  border: none;
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 44%;
+  outline: none;
+}
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+.sign-in {
+  z-index: 2;
+  left: 20%;
+}
+.container.active .sign-in {
+  transform: translateX(100%);
+}
+.sign-up {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+.container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+@keyframes move {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+.social-icons {
+  margin: 20px 0;
+}
+.social-icons a {
+  border: 1px solid #ccc;
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+}
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 150px;
+  z-index: 1000;
+}
+.container.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+.toggle {
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  height: 100%;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+.container.active .toggle {
+  transform: translateX(50%);
+}
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+.toggle-left {
+  transform: translateX(0);
+}
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+.container.active .toggle-right {
+  transform: translateX(200%);
+}
+.for-forgot,
+.for-login-with-email-link,
+.for-signup,
+.for-email-login {
+  display: none;
+}
+.for-login .page-card,
+.for-forgot .page-card,
+.for-login-with-email-link .page-card,
+.for-signup .page-card,
+.for-email-login .page-card {
+  margin: 0 auto;
+}
+.for-login .page-card form,
+.for-forgot .page-card form,
+.for-login-with-email-link .page-card form,
+.for-signup .page-card form,
+.for-email-login .page-card form {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.for-login .page-card form .form-group,
+.for-forgot .page-card form .form-group,
+.for-login-with-email-link .page-card form .form-group,
+.for-signup .page-card form .form-group,
+.for-email-login .page-card form .form-group {
+  margin-bottom: var(--margin-sm);
+}
+.for-login .page-card .page-card-actions,
+.for-forgot .page-card .page-card-actions,
+.for-login-with-email-link .page-card .page-card-actions,
+.for-signup .page-card .page-card-actions,
+.for-email-login .page-card .page-card-actions {
+  margin-top: var(--margin-lg);
+}
+.for-login .page-card .page-card-body ::placeholder,
+.for-login .page-card .page-card-body ::-ms-input-placeholder,
+.for-forgot .page-card .page-card-body ::placeholder,
+.for-forgot .page-card .page-card-body ::-ms-input-placeholder,
+.for-login-with-email-link .page-card .page-card-body ::placeholder,
+.for-login-with-email-link .page-card .page-card-body ::-ms-input-placeholder,
+.for-signup .page-card .page-card-body ::placeholder,
+.for-signup .page-card .page-card-body ::-ms-input-placeholder,
+.for-email-login .page-card .page-card-body ::placeholder,
+.for-email-login .page-card .page-card-body ::-ms-input-placeholder {
+  color: var(--text-light);
+  opacity: 1;
+}
+.for-login .page-card .page-card-body input[type=text],
+.for-login .page-card .page-card-body input[type=email],
+.for-login .page-card .page-card-body input[type=password],
+.for-forgot .page-card .page-card-body input[type=text],
+.for-forgot .page-card .page-card-body input[type=email],
+.for-forgot .page-card .page-card-body input[type=password],
+.for-login-with-email-link .page-card .page-card-body input[type=text],
+.for-login-with-email-link .page-card .page-card-body input[type=email],
+.for-login-with-email-link .page-card .page-card-body input[type=password],
+.for-signup .page-card .page-card-body input[type=text],
+.for-signup .page-card .page-card-body input[type=email],
+.for-signup .page-card .page-card-body input[type=password],
+.for-email-login .page-card .page-card-body input[type=text],
+.for-email-login .page-card .page-card-body input[type=email],
+.for-email-login .page-card .page-card-body input[type=password] {
+  border: none;
+  color: var(--text-color);
+  background-color: var(--control-bg);
+  margin-bottom: 1rem;
+}
+.for-login .page-card .page-card-body.invalid input[type=text],
+.for-login .page-card .page-card-body.invalid input[type=email],
+.for-login .page-card .page-card-body.invalid input[type=password],
+.for-forgot .page-card .page-card-body.invalid input[type=text],
+.for-forgot .page-card .page-card-body.invalid input[type=email],
+.for-forgot .page-card .page-card-body.invalid input[type=password],
+.for-login-with-email-link .page-card .page-card-body.invalid input[type=text],
+.for-login-with-email-link .page-card .page-card-body.invalid input[type=email],
+.for-login-with-email-link .page-card .page-card-body.invalid input[type=password],
+.for-signup .page-card .page-card-body.invalid input[type=text],
+.for-signup .page-card .page-card-body.invalid input[type=email],
+.for-signup .page-card .page-card-body.invalid input[type=password],
+.for-email-login .page-card .page-card-body.invalid input[type=text],
+.for-email-login .page-card .page-card-body.invalid input[type=email],
+.for-email-login .page-card .page-card-body.invalid input[type=password] {
+  border: 1px solid var(--red-500);
+}
+.for-login .page-card .page-card-body .login_page,
+.for-forgot .page-card .page-card-body .login_page,
+.for-login-with-email-link .page-card .page-card-body .login_page,
+.for-signup .page-card .page-card-body .login_page,
+.for-email-login .page-card .page-card-body .login_page {
+  font-weight: bolder;
+  color: black;
+  font-size: 30px;
+  padding-left: 100px;
+  margin-bottom: 30px;
+}
+.for-login .page-card .page-card-body .forgot-password-message,
+.for-forgot .page-card .page-card-body .forgot-password-message,
+.for-login-with-email-link .page-card .page-card-body .forgot-password-message,
+.for-signup .page-card .page-card-body .forgot-password-message,
+.for-email-login .page-card .page-card-body .forgot-password-message {
+  text-align: left;
+  line-height: 1;
+}
+.for-login .page-card .page-card-body .forgot-password-message > *,
+.for-forgot .page-card .page-card-body .forgot-password-message > *,
+.for-login-with-email-link .page-card .page-card-body .forgot-password-message > *,
+.for-signup .page-card .page-card-body .forgot-password-message > *,
+.for-email-login .page-card .page-card-body .forgot-password-message > * {
+  color: var(--text-light);
+}
+.for-login .page-card .page-card-body .field-icon,
+.for-forgot .page-card .page-card-body .field-icon,
+.for-login-with-email-link .page-card .page-card-body .field-icon,
+.for-signup .page-card .page-card-body .field-icon,
+.for-email-login .page-card .page-card-body .field-icon {
+  left: 9px;
+  top: 5px;
+  position: absolute;
+  z-index: 2;
+}
+.for-login .page-card .page-card-body .email-field,
+.for-login .page-card .page-card-body .password-field,
+.for-forgot .page-card .page-card-body .email-field,
+.for-forgot .page-card .page-card-body .password-field,
+.for-login-with-email-link .page-card .page-card-body .email-field,
+.for-login-with-email-link .page-card .page-card-body .password-field,
+.for-signup .page-card .page-card-body .email-field,
+.for-signup .page-card .page-card-body .password-field,
+.for-email-login .page-card .page-card-body .email-field,
+.for-email-login .page-card .page-card-body .password-field {
+  position: relative;
+}
+.for-login .page-card .page-card-body .email-field input,
+.for-login .page-card .page-card-body .password-field input,
+.for-forgot .page-card .page-card-body .email-field input,
+.for-forgot .page-card .page-card-body .password-field input,
+.for-login-with-email-link .page-card .page-card-body .email-field input,
+.for-login-with-email-link .page-card .page-card-body .password-field input,
+.for-signup .page-card .page-card-body .email-field input,
+.for-signup .page-card .page-card-body .password-field input,
+.for-email-login .page-card .page-card-body .email-field input,
+.for-email-login .page-card .page-card-body .password-field input {
+  padding-left: 35px;
+}
+.for-login .page-card .page-card-body .email-field .toggle-password,
+.for-login .page-card .page-card-body .password-field .toggle-password,
+.for-forgot .page-card .page-card-body .email-field .toggle-password,
+.for-forgot .page-card .page-card-body .password-field .toggle-password,
+.for-login-with-email-link .page-card .page-card-body .email-field .toggle-password,
+.for-login-with-email-link .page-card .page-card-body .password-field .toggle-password,
+.for-signup .page-card .page-card-body .email-field .toggle-password,
+.for-signup .page-card .page-card-body .password-field .toggle-password,
+.for-email-login .page-card .page-card-body .email-field .toggle-password,
+.for-email-login .page-card .page-card-body .password-field .toggle-password {
+  right: 9px;
+  top: 5px;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  font-size: 12px;
+}
+.for-login .page-card .page-card-body .btn-login-option,
+.for-forgot .page-card .page-card-body .btn-login-option,
+.for-login-with-email-link .page-card .page-card-body .btn-login-option,
+.for-signup .page-card .page-card-body .btn-login-option,
+.for-email-login .page-card .page-card-body .btn-login-option {
+  color: var(--text-gray-700);
+  background: var(--gray-100);
+  box-shadow: none;
+  border: none;
+  place-content: center;
+}
+.for-login .page-card .page-card-body .btn-login-option.btn-salesforce i,
+.for-forgot .page-card .page-card-body .btn-login-option.btn-salesforce i,
+.for-login-with-email-link .page-card .page-card-body .btn-login-option.btn-salesforce i,
+.for-signup .page-card .page-card-body .btn-login-option.btn-salesforce i,
+.for-email-login .page-card .page-card-body .btn-login-option.btn-salesforce i {
+  color: var(--blue-400);
+}
+.for-login .page-card .page-card-body .btn-login-option img,
+.for-forgot .page-card .page-card-body .btn-login-option img,
+.for-login-with-email-link .page-card .page-card-body .btn-login-option img,
+.for-signup .page-card .page-card-body .btn-login-option img,
+.for-email-login .page-card .page-card-body .btn-login-option img {
+  margin-right: var(--padding-xs);
+}
+.for-login .page-card .page-card-body .btn-login-option:hover,
+.for-forgot .page-card .page-card-body .btn-login-option:hover,
+.for-login-with-email-link .page-card .page-card-body .btn-login-option:hover,
+.for-signup .page-card .page-card-body .btn-login-option:hover,
+.for-email-login .page-card .page-card-body .btn-login-option:hover {
+  border: none;
+  background: var(--gray-300);
+}
+.for-login .page-card .page-card-body .social-logins,
+.for-forgot .page-card .page-card-body .social-logins,
+.for-login-with-email-link .page-card .page-card-body .social-logins,
+.for-signup .page-card .page-card-body .social-logins,
+.for-email-login .page-card .page-card-body .social-logins {
+  margin-top: var(--margin-md);
+}
+.for-login .page-card .page-card-body .social-logins .social-login-buttons,
+.for-forgot .page-card .page-card-body .social-logins .social-login-buttons,
+.for-login-with-email-link .page-card .page-card-body .social-logins .social-login-buttons,
+.for-signup .page-card .page-card-body .social-logins .social-login-buttons,
+.for-email-login .page-card .page-card-body .social-logins .social-login-buttons {
+  margin-top: var(--margin-md);
+}
+.for-login .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+.for-forgot .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+.for-login-with-email-link .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+.for-signup .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+.for-email-login .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper {
+  min-width: 50%;
+  padding: 0 4px;
+  margin-bottom: var(--margin-md);
+}
+@media (min-width: 768px) {
+  .for-login .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+  .for-forgot .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+  .for-login-with-email-link .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+  .for-signup .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper,
+  .for-email-login .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper {
+    min-width: 33.33%;
+  }
+}
+.for-login .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper:last-child,
+.for-forgot .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper:last-child,
+.for-login-with-email-link .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper:last-child,
+.for-signup .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper:last-child,
+.for-email-login .page-card .page-card-body .social-logins .social-login-buttons .login-button-wrapper:last-child {
+  margin-bottom: 0;
+}
+.for-login .page-card .page-card-body .login-divider,
+.for-forgot .page-card .page-card-body .login-divider,
+.for-login-with-email-link .page-card .page-card-body .login-divider,
+.for-signup .page-card .page-card-body .login-divider,
+.for-email-login .page-card .page-card-body .login-divider {
+  margin: var(--margin-md) 0;
+}
+.for-login .sign-up-message,
+.for-forgot .sign-up-message,
+.for-login-with-email-link .sign-up-message,
+.for-signup .sign-up-message,
+.for-email-login .sign-up-message {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: var(--text-light);
+}
+.for-login .sign-up-message a,
+.for-forgot .sign-up-message a,
+.for-login-with-email-link .sign-up-message a,
+.for-signup .sign-up-message a,
+.for-email-login .sign-up-message a {
+  color: var(--primary);
+}
+.for-login .invalid-login,
+.for-forgot .invalid-login,
+.for-login-with-email-link .invalid-login,
+.for-signup .invalid-login,
+.for-email-login .invalid-login {
+  -webkit-animation: wiggle 0.5s linear;
+}
+.web-footer {
+  display: none !important;
+}
+.btn:not(.btn-md):not(.btn-lg) {
+  padding: 5px 25px;
+}
+.btn.btn-primary {
+  background-color: linear-gradient(to right, #5c6bc0, #14d0d6);
+  color: var(--neutral);
+  white-space: nowrap;
+  --icon-stroke: currentColor;
+  --icon-fill-bg: var(--btn-primary);
+}
+/*# sourceMappingURL=appraisal-login.bundle.6GZZVOF5.css.map */
