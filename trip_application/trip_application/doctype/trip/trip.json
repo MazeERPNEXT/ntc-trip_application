@@ -37,7 +37,9 @@
   "advance_details",
   "section_break_whvj",
   "expense_type_child",
-  "amended_from"
+  "amended_from",
+  "fuel_expense_type_section",
+  "fuel_expense_child"
  ],
  "fields": [
   {
@@ -108,7 +110,7 @@
   {
    "fieldname": "section_break_whvj",
    "fieldtype": "Section Break",
-   "label": "Expense Type"
+   "label": "General Expense Type"
   },
   {
    "fieldname": "expense_type_child",
@@ -231,11 +233,21 @@
    "in_list_view": 1,
    "label": "Bill Number",
    "reqd": 1
+  },
+  {
+   "fieldname": "fuel_expense_type_section",
+   "fieldtype": "Section Break",
+   "label": "Fuel Expense Type"
+  },
+  {
+   "fieldname": "fuel_expense_child",
+   "fieldtype": "Table",
+   "options": "Fuel Expensive Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-15 16:01:29.447951",
+ "modified": "2024-03-21 20:33:26.476994",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",

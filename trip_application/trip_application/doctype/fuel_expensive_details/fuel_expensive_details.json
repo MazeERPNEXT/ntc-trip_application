@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-21 16:26:33.987852",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "fuel_expense_type",
+  "diesel_billed_qty",
+  "diesel_consumed_qty",
+  "rate_per_litre",
+  "fuel_expense_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "fuel_expense_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fuel Expense Type",
+   "options": "Fuel Expense Master Table",
+   "reqd": 1
+  },
+  {
+   "fieldname": "diesel_billed_qty",
+   "fieldtype": "Float",
+   "label": "Diesel Billed Qty"
+  },
+  {
+   "fieldname": "diesel_consumed_qty",
+   "fieldtype": "Float",
+   "label": "Diesel Consumed Qty"
+  },
+  {
+   "fieldname": "rate_per_litre",
+   "fieldtype": "Float",
+   "label": "Rate per litre"
+  },
+  {
+   "fieldname": "fuel_expense_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Fuel Expense Amount",
+   "options": "currency"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-03-21 18:05:04.843309",
+ "modified_by": "Administrator",
+ "module": "Trip Application",
+ "name": "Fuel Expensive Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

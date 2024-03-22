@@ -290,24 +290,72 @@ frappe.ui.form.on('Trip', {
             child.advance_amount = Math.abs(child.advance_amount || 0)
         setTimeout(()=>cur_frm.events.calculate_total_and_balance(cur_frm),500);
     },
+    change_number_nature : function(child, fuel_expense_type){
+        if(fuel_expense_type == 'expense')
+            child.fuel_expense_amount = Math.abs(child.fuel_expense_amount || 0)
+        else
+            child.advance_amount = Math.abs(child.advance_amount || 0)
+        setTimeout(()=>cur_frm.events.calculate_total_and_balance(cur_frm),500);
+    },
+
+    fuel_rate_expense:function(frm){
+        
+            var total_fuel_rate = 0;
+            if(frm.doc.fuel_expense_child == undefined){
+                return
+            }
+            frm.doc.fuel_expense_child.forEach(row =>{
+                if (row.diesel_consumed_qty && row.rate_per_litre){
+                    row.fuel_expense_amount = parseFloat(parseFloat((row.diesel_consumed_qty) * (row.rate_per_litre)))
+                    console.log(row.fuel_expense_amount);   
+                }
+                else{
+                    row.fuel_expense_amount = 0;
+                }
+                total_fuel_rate += fuel_expense_amount;
+                console.log(total_fuel_rate);
+            }); 
+            frm.refresh_field('fuel_expense_child');
+            frm.set_value('fuel_expense_child', fuel_expense_child);
+            frm.refresh_field();
+
+            // Get the current value of total_trip_amount
+    var total_trip_amount = frm.doc.trip_amount || 0;
+
+    // Add total_trip_amount to total_fuel_rate
+    total_trip_amount += total_fuel_rate;
+
+    // Set the calculated value to trip_amount field
+    frappe.model.set_value(frm.doctype, frm.docname, 'trip_amount', total_trip_amount);
+
+    // Refresh the field
+    frm.refresh_field('trip_amount');
+    },
 
     calculate_total_and_balance:function (frm) {
         var expense_child_table = frm.doc.expense_type_child || [];
+        var fuel_child_table = frm.doc.fuel_expense_child || [];
         var advance_child_table = frm.doc.advance_details || [];
-
+    
         var total_expense_amount = expense_child_table.reduce(function(sum, row) {
             return sum + (row.expense_amount || 0);
         }, 0);
-
+    
+        var total_fuel_amount = fuel_child_table.reduce(function(sum, row) {
+            return sum + (row.fuel_expense_amount || 0);
+        }, 0);
+    
         var total_advance_amount = advance_child_table.reduce(function(sum, row) {
             return sum + (row.advance_amount || 0);
         }, 0);
-
-        frappe.model.set_value(frm.doctype, frm.docname, 'trip_amount', total_expense_amount);
+    
+        var total_trip_amount = total_expense_amount + total_fuel_amount; // Adding both expense and fuel amounts
+    
+        frappe.model.set_value(frm.doctype, frm.docname, 'trip_amount', total_trip_amount);
         frappe.model.set_value(frm.doctype, frm.docname, 'trip_advance_amount', total_advance_amount);
-
-        frappe.model.set_value(frm.doctype, frm.docname, 'balance_amount', parseFloat(total_advance_amount || 0) - parseFloat(total_expense_amount));
-
+    
+        frappe.model.set_value(frm.doctype, frm.docname, 'balance_amount', parseFloat(total_advance_amount || 0) - parseFloat(total_trip_amount));
+    
     }
 
     
@@ -342,18 +390,34 @@ frappe.ui.form.on('Trip Advance Child Table', {
 
 
 frappe.ui.form.on('Trip Expense Type Child Table', {
-
     expense_type: function(frm, cdt, cdn) {
         var child = locals[cdt][cdn];
-        frm.events.change_number_nature(child,'expense')
+        frm.events.change_number_nature(child, 'expense');
     },
 
     expense_amount: function(frm, cdt, cdn) {
         var child = locals[cdt][cdn];
-        frm.events.change_number_nature(child,'expense')
+        frm.events.change_number_nature(child, 'expense');
     }
-
 });
+
+frappe.ui.form.on('Fuel Expensive Details', {
+    diesel_consumed_qty: function(frm, cdt, cdn) {
+        calculateFuelExpenseAmount(frm, cdt, cdn);
+    },
+
+    rate_per_litre: function(frm, cdt, cdn) {
+        calculateFuelExpenseAmount(frm, cdt, cdn);
+    }
+});
+
+function calculateFuelExpenseAmount(frm, cdt, cdn) {
+    var child = locals[cdt][cdn];
+    if (child.diesel_consumed_qty && child.rate_per_litre) {
+        var fuel_expense_amount = child.diesel_consumed_qty * child.rate_per_litre;
+        frappe.model.set_value(cdt, cdn, 'fuel_expense_amount', fuel_expense_amount);
+    }
+}
 
 
 // frappe.ui.form.on('Driver Child Table', {

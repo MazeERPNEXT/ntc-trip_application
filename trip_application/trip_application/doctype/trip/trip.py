@@ -7,11 +7,13 @@ from frappe.model.document import Document
 
 
 class Trip(Document):
-	pass
-# class Trip(Document):
-# 	def validate(self):
-# 		doc = frappe.get_doc(self)
-# 		print(doc,"11111111111111111111111111111111111111111111111111111111111")
-# 		if doc.trip_end_date and self.trip_end_date != doc.trip_end_date:
-# 			frappe.throw("Cannot update 'Trip End Date'. It is mandatory once set.")
+    pass
+    # def before_save(self):
+    #     self.calculate_fuel_expense_amount()
 
+    # def calculate_fuel_expense_amount(self):
+    #     for expense_row in self.fuel_expense_child:
+    #         if expense_row.diesel_consumed_qty and expense_row.rate_per_litre:
+    #             fuel_expense_amount = expense_row.diesel_consumed_qty    * expense_row.rate_per_litre
+    #             print(f"Calculated Expense Amount: {fuel_expense_amount}")
+    #             expense_row.fuel_expense_amount = fuel_expense_amount
