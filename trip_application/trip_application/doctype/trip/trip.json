@@ -146,7 +146,8 @@
   },
   {
    "fieldname": "section_break_wbhb",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Driver Details"
   },
   {
    "fieldname": "driver_details",
@@ -155,8 +156,7 @@
   },
   {
    "fieldname": "driver_details_column",
-   "fieldtype": "Column Break",
-   "label": "Driver Details"
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "section_break_imal",
@@ -247,7 +247,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-21 20:33:26.476994",
+ "modified": "2024-04-02 16:19:45.391418",
  "modified_by": "Administrator",
  "module": "Trip Application",
  "name": "Trip",
